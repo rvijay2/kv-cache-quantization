@@ -1,0 +1,67 @@
+[
+    {
+        "mode": "fp32",
+        "sequence_length": 64,
+        "latency": 2.3512299747924805,
+        "kv_memory_MB": 1.93359375,
+        "perplexity": 31.792314529418945
+    },
+    {
+        "mode": "fp32",
+        "sequence_length": 128,
+        "latency": 2.3684511184692383,
+        "kv_memory_MB": 1.93359375,
+        "perplexity": 31.8162841796875
+    },
+    {
+        "mode": "fp32",
+        "sequence_length": 256,
+        "latency": 2.3389673233032227,
+        "kv_memory_MB": 1.93359375,
+        "perplexity": 31.842119216918945
+    },
+
+    {
+        "mode": "int8",
+        "sequence_length": 64,
+        "latency": 2.1957316398620605,
+        "kv_memory_MB": 0.4833984375,
+        "perplexity": 34.10128402709961
+    },
+    {
+        "mode": "int8",
+        "sequence_length": 128,
+        "latency": 2.214667797088623,
+        "kv_memory_MB": 0.4833984375,
+        "perplexity": 34.137451171875
+    },
+    {
+        "mode": "int8",
+        "sequence_length": 256,
+        "latency": 2.189540386199951,
+        "kv_memory_MB": 0.4833984375,
+        "perplexity": 34.12289810180664
+    },
+
+    {
+        "mode": "scheduled",
+        "sequence_length": 64,
+        "latency": 2.3749189376831055,
+        "kv_memory_MB": 0.5762109375,
+        "perplexity": 31.603118896484375
+    },
+    {
+        "mode": "scheduled",
+        "sequence_length": 128,
+        "latency": 2.3897714614868164,
+        "kv_memory_MB": 0.5762109375,
+        "perplexity": 31.62845230102539
+    },
+    {
+        "mode": "scheduled",
+        "sequence_length": 256,
+        "latency": 2.361884593963623,
+        "kv_memory_MB": 0.5762109375,
+        "perplexity": 31.621946334838867
+    }
+]
