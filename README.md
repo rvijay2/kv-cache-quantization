@@ -3,11 +3,7 @@
 **CS595 Final Project**
 
 **Name: Rachana Vijay**
-`A#: A20605843`
-
-[Overview](#-overview) · [Results](#-results) · [Installation](#-installation) · [Usage](#-usage) · [Architecture](#-architecture) · [File Structure](#-file-structure) · [Citation](#-citation)
-
-</div>
+`A#: A20605843` 
 
 ---
 
@@ -139,7 +135,7 @@ FP32_TOKENS      = 10               # Freshness window size (steps in FP32)
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### System Pipeline
 
@@ -243,7 +239,7 @@ def compute_perplexity(model, tokenizer, device):
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```
 adaptive-kv-cache/
@@ -269,7 +265,7 @@ adaptive-kv-cache/
 
 ---
 
-## 🔬 Experimental Details
+## Experimental Details
 
 ### Hardware & Software
 
@@ -301,8 +297,7 @@ adaptive-kv-cache/
 3. KV memory is tracked per-step and averaged across all steps.
 4. Perplexity is computed once per run after generation, on the WikiText-2 test set.
 
----
-
+--- 
 
 ## Output
 
