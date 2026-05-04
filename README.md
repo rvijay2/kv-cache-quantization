@@ -3,11 +3,11 @@
 **CS595 Final Project**
 
 **Name: Rachana Vijay**
-`A#: A20605843` 
+**A#: A20605843**
 
 ---
 
-## 📌 Overview
+## Overview
 
 This project proposes **Precision Scheduling** — a hybrid approach that keeps recent tokens in full FP32 precision (a *Freshness Window*) while compressing older tokens to INT8, based on the key observation that attention mechanisms are more sensitive to recent context than distant tokens.
 
@@ -20,41 +20,7 @@ This project proposes **Precision Scheduling** — a hybrid approach that keeps 
 
 ---
 
-## 📊 Results
-
-All experiments ran on **GPT-2 Small (117M)** with the **WikiText-2** benchmark on a CPU-only machine (Intel i5-8265U, 8 GB RAM).
-
-### Memory Utilization
-
-| Method | Peak KV Memory (MB) | Savings vs Baseline |
-|--------|--------------------:|--------------------:|
-| FP32 | 1.93 | 0% |
-| INT8 | 0.48 | 75.1% |
-| **Scheduled (Ours)** | **0.58** | **69.9%** |
-
-### Latency & Perplexity
-
-| Method | Avg Latency (s) | PPL @ 5% Data | PPL @ 10% Data |
-|--------|----------------:|--------------:|---------------:|
-| FP32 | 2.35 | 31.5 | 31.81 |
-| INT8 | 2.20 | 32.6 | 34.12 |
-| **Scheduled (Ours)** | **2.38** | **31.5** | **31.62** |
-
-> **Key Finding:** At scale (10% of WikiText-2), INT8 degrades to PPL 34.12. Our scheduled method holds at 31.62 — only 0.19 PPL above FP32, while using **70% less memory**.
-
-### Graphs
-
-| Memory Comparison | Latency vs Sequence Length |
-|:-----------------:|:--------------------------:|
-| ![Memory](results/memory.png) | ![Latency](results/latency.png) |
-
-| Perplexity Comparison | Overall Trade-off |
-|:---------------------:|:-----------------:|
-| ![Perplexity](results/perplexity.png) | ![Tradeoff](results/tradeoff.png) |
-
----
-
-## ⚙️ Installation
+## Installation
 
 ### Prerequisites
 
@@ -88,7 +54,7 @@ numpy>=1.24.0
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### Run the Full Experiment
 
@@ -303,5 +269,39 @@ adaptive-kv-cache/
 
 Results are saved to `results/output.json`.
 One entry per `(mode, sequence_length)` combination. With 3 modes × 3 sequence lengths, the default run produces **9 entries**.
+
+---
+
+## Results
+
+All experiments ran on **GPT-2 Small (117M)** with the **WikiText-2** benchmark on a CPU-only machine (Intel i5-8265U, 8 GB RAM).
+
+### Memory Utilization
+
+| Method | Peak KV Memory (MB) | Savings vs Baseline |
+|--------|--------------------:|--------------------:|
+| FP32 | 1.93 | 0% |
+| INT8 | 0.48 | 75.1% |
+| **Scheduled (Ours)** | **0.58** | **69.9%** |
+
+### Latency & Perplexity
+
+| Method | Avg Latency (s) | PPL @ 5% Data | PPL @ 10% Data |
+|--------|----------------:|--------------:|---------------:|
+| FP32 | 2.35 | 31.5 | 31.81 |
+| INT8 | 2.20 | 32.6 | 34.12 |
+| **Scheduled (Ours)** | **2.38** | **31.5** | **31.62** |
+
+> **Key Finding:** At scale (10% of WikiText-2), INT8 degrades to PPL 34.12. Our scheduled method holds at 31.62 — only 0.19 PPL above FP32, while using **70% less memory**.
+
+### Graphs
+
+| Memory Comparison | Latency vs Sequence Length |
+|:-----------------:|:--------------------------:|
+| ![Memory](results/memory.png) | ![Latency](results/latency.png) |
+
+| Perplexity Comparison | Overall Trade-off |
+|:---------------------:|:-----------------:|
+| ![Perplexity](results/perplexity.png) | ![Tradeoff](results/tradeoff.png) |
 
 ---
