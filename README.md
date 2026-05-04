@@ -3,6 +3,7 @@
 **CS595 Final Project**
 
 **Name: Rachana Vijay**
+
 **A#: A20605843**
 
 ---
@@ -212,7 +213,7 @@ adaptive-kv-cache/
 │
 ├── 📄 run_experiment.py      # Main orchestration: loops over modes/seq_lens, saves JSON
 ├── 📄 kv_scheduler.py        # Core scheduling logic: FP32 / INT8 / Scheduled modes
-├── 📄 perplexity.py          # Sliding-window perplexity on WikiText-2
+├── 📄 perplexity.py          # Perplexity on WikiText-2
 ├── 📄 config.py              # Hyperparameters: model, modes, sequence lengths, thresholds
 ├── 📄 metrics.py             # Timer and memory profiling utilities
 ├── 📄 utils.py               # Tokenizer loader and misc helpers
@@ -220,7 +221,7 @@ adaptive-kv-cache/
 ├── 📄 requirements.txt       # Python dependencies
 │
 ├── 📁 results/
-│   ├── output.json        # Raw experiment results (all modes × seq_lens)
+│   ├── output.json       # Raw experiment results (all modes × seq_lens)
 │   ├── latency.png       # Latency vs Sequence Length plot
 │   ├── memory.png        # KV Cache Memory Comparison bar chart
 │   ├── perplexity.png    # Perplexity Comparison bar chart
